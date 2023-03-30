@@ -117,6 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 return ListTile(
                   title: Text(word['word']),
                   subtitle: Text(word['username']),
+                  trailing: Text(word['id']
+                      .toString()), // afficher l'ID à droite de chaque note
                 );
               },
             ),
