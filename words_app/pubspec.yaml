@@ -15,6 +15,12 @@ dependencies:
   location: ^4.4.0
   geolocator: ^9.0.2
   geocoding: ^2.0.4
+  cv:
+  sqflite:
+  flutter_riverpod:
+  dio:
+  json_annotation: ^4.4.0
+
 
 dev_dependencies:
   flutter_test:

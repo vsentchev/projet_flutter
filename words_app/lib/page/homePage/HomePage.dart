@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';  
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:words_app/page/appPages/OwnedWordsPage.dart';
+
 
 
 class HomePage extends StatefulWidget {
@@ -14,9 +16,21 @@ class _HomePageState extends State<HomePage> {
 
   TextEditingController pseudoName = TextEditingController();
 
+  // Fonction pour login
+  void LoginAction() {
+      if (pseudoName.text != "") {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return OwnedWordsPage(
+            pseudoName: pseudoName.text
+          );
+        }));
+      }
+    }
+
   @override
   Widget build(BuildContext context) {
-
+    print("pseudoName = " + pseudoName.toString());
+    // LoginAction();
     return Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
@@ -42,9 +56,9 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(10),
               child: TextField(
                 controller: pseudoName,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Pseudo',
+                  labelText: pseudoName.text.isEmpty ? 'Pseudo' : pseudoName.text,
                 ),
               ),
             ),
@@ -57,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                     SharedPreferences pref =await SharedPreferences.getInstance();
                     pref.setString("pseudoName", pseudoName.text);
                     print(pref.getString('pseudoName'));
-
+                    LoginAction();
                   },
                 )
             )

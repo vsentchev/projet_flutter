@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:words_app/page/homePage/HomePage.dart';
+import 'package:words_app/page/appPages/OwnedWordsPage.dart';
 
-void main() {
-  runApp(const MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+void main() => runApp(const MyApp());
+ 
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+ 
+  static const String _title = 'WordsApp';
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: _title,
+      debugShowCheckedModeBanner: false,
+      theme : ThemeData(
+        primarySwatch: Colors.indigo,
+        scaffoldBackgroundColor: Colors.white
+      ),
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+        appBar: AppBar(title: const Text(_title)),
+        body: const HomePage(),
       ),
     );
   }
