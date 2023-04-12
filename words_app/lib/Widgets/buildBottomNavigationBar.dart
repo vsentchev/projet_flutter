@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Widget pour naviguer entre les mots du user et la carte
 Widget buildBottomNavigationBar(int selectedIndex, Function(int) onItemTapped) {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
@@ -16,4 +17,3 @@ Widget buildBottomNavigationBar(int selectedIndex, Function(int) onItemTapped) {
       onTap: onItemTapped,
     );
   }
-  

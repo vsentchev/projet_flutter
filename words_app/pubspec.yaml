@@ -20,6 +20,8 @@ dependencies:
   flutter_riverpod:
   dio:
   json_annotation: ^4.4.0
+  build_runner:
+  json_serializable:
 
 
 dev_dependencies:

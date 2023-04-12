@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:words_app/littlewords/beans/dto/word.dto.dart';
 
-// part 'words.dto.g.dart';
+part 'words.dto.g.dart';
 
 @JsonSerializable()
 class WordsDTO {

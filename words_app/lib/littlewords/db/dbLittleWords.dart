@@ -1,7 +1,7 @@
 import 'package:words_app/littlewords/beans/dto/word.dto.dart';
 import 'package:sqflite/sqflite.dart';
 
-class DbHelper{
+class DbLittleWords{
   static const String _dbName = 'littlewords.db';
   static const int _dbVersion = 1;
 
@@ -20,7 +20,7 @@ class DbHelper{
   static const String createTable = '''
     CREATE TABLE IF NOT EXISTS $tableName (
       uid INTEGER PRIMARY KEY NOT NULL,
-      username VARCHAR NOT NULL
+      content VARCHAR NOT NULL
     )
   ''';
 
@@ -28,11 +28,12 @@ class DbHelper{
     DROP TABLE IF EXISTS $tableName
   ''';
 
-
+  // Creation de db
   static  _onCreate(Database db, int version) {
     db.execute(createTable);
   }
 
+  // Suppression de la db puis creation avec nv version
   static _onUpgrade(Database db, int oldVersion, int newVersion) {
     db.execute(dropTable);
 

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-// part 'word.dto.g.dart';
+part 'word.dto.g.dart';
 
 @JsonSerializable()
 class WordDTO{
@@ -10,8 +10,8 @@ class WordDTO{
   final int? uid;
   final String? author;
   final String? content;
-  final double? latitude;
-  final double? longitude;
+  final double latitude;
+  final double longitude;
 
   Map<String, dynamic> toJson() => _$WordDTOToJson(this);
 
@@ -32,7 +32,7 @@ class WordDTO{
         json['uid'] as int?,
         json['author'] as String?,
         json['content'] as String?,
-        (json['latitude'] as num?)?.toDouble(),
-        (json['longitude'] as num?)?.toDouble(),
+        (json['latitude'] as double).toDouble(),
+        (json['longitude'] as double).toDouble(),
     );
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:words_app/page/homePage/HomePage.dart';
-import 'package:words_app/page/appPages/OwnedWordsPage.dart';
 
 void main() => runApp(const MyApp());
  
