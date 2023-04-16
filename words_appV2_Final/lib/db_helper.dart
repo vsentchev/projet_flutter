@@ -23,7 +23,9 @@ class DbHelper {
     CREATE TABLE IF NOT EXISTS $_tableName (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT NOT NULL,
-      word TEXT NOT NULL
+      word TEXT NOT NULL,
+      latitude REAL DEFAULT 0.0,
+      longitude REAL DEFAULT 0.0
     )
   ''';
 
@@ -33,7 +35,6 @@ class DbHelper {
 
   static _onCreate(Database db, int version) async {
     await db.execute(_createTable);
-    //await insertWord('houssam', 'vassili');
   }
 
   static _onUpgrade(Database db, int oldVersion, int newVersion) async {
@@ -41,10 +42,13 @@ class DbHelper {
     await _onCreate(db, newVersion);
   }
 
-  static Future<int> insertWord(String username, String word) async {
+  static Future<int> insertWord(String username, String word,
+      {double latitude = 0.0, double longitude = 0.0}) async {
     final Map<String, dynamic> row = {
       'username': username,
       'word': word,
+      'latitude': latitude,
+      'longitude': longitude
     };
     final int id = await _db!.insert(_tableName, row);
     return id;
